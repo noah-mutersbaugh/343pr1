@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
 	int maxAvg, minAvg;
 	int* avgWordSize = (int*)malloc((argc-1)*sizeof(int));
 
+	if(argc>1){
 	for(int i=1; i<argc; i++){
 		FILE *fp;
 		char c;
@@ -80,9 +81,13 @@ int main(int argc, char *argv[]) {
 		}
 		free(wordCounter);
 	}
+	}else{
+		printf("No argument passed.");
+		exit(0);
+	}
 
 	printf("\nMost difficult document: %s", filenamesMaxMin[0]);
-	printf("\nLeast difficult document: %s", filenamesMaxMin[1]);
+	printf("\nLeast difficult document: %s\n", filenamesMaxMin[1]);
 
 	free(avgWordSize);
 
